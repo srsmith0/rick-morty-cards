@@ -9,6 +9,18 @@ import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
+  let [fetchedData, updateFetchedData] = useState([]);
+  let { info, results } = fetchedData;
+
+  let api = `https://rickandmortyapi.com/api/character/?page=1`
+  
+  useEffect(() => {
+    (async function () {
+      let data = await fetch(api).then((res) => res.json());
+      updateFetchedData(data);
+    })();
+   }, [api]);
+
   return (
     <div className="App">
       <h1 className="text-center mb-3">Characters</h1>
