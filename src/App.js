@@ -26,10 +26,10 @@ function App() {
       <h1 className="text-center mb-3">Characters</h1>
       <div className="container">
       <div className="row">
-   
+   Filter goes here
         <div className="col-lg-8 col-12">
           <div className="row">
-            
+              <Card results={results} />
           </div>
         </div>
       </div>
