@@ -1,14 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Search from "./components/Search/Search";
 import Card from "./components/Card/Card";
 import Pagination from "./components/Pagination/Pagination";
 import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
+import Episodes from "./Pages/Episodes";
+import Location from "./Pages/Location";
 
-function App() {
+const Home = () => {
   let [fetchedData, updateFetchedData] = useState([]);
   let [pageNumber, updatePageNumber] = useState(1);
   let [search, setSearch] = useState("");
@@ -24,35 +27,45 @@ function App() {
       let data = await fetch(api).then((res) => res.json());
       updateFetchedData(data);
     })();
-   }, [api]);
+  }, [api]);
 
   return (
     <div className="App">
       <h1 className="text-center mb-3">Characters</h1>
-        <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
+      <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
       <div className="container">
-      <div className="row">
-        <Filter
-          pageNumber={pageNumber}
-          status={status}
-          updateStatus={updateStatus}
-          updateGender={updateGender}
-          updateSpecies={updateSpecies}
-          updatePageNumber={updatePageNumber}
-        />
-        <div className="col-lg-8 col-12">
-          <div className="row">
+        <div className="row">
+          <Filter
+            pageNumber={pageNumber}
+            status={status}
+            updateStatus={updateStatus}
+            updateGender={updateGender}
+            updateSpecies={updateSpecies}
+            updatePageNumber={updatePageNumber}
+          />
+          <div className="col-lg-8 col-12">
+            <div className="row">
               <Card results={results} />
+            </div>
           </div>
         </div>
       </div>
-      </div>
-        <Pagination
-          info={info}
-          pageNumber={pageNumber}
-          updatePageNumber={updatePageNumber}
-        />
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      />
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+    </Router>
   );
 }
 
