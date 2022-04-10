@@ -22,7 +22,14 @@ return (
       className="text-primary text-decoration-underline text-center mb-3"
     > Clear Filters </div>
     <div className="accordion" id="accordionExample">
-      {/* Category components will be placed here */}
+      <Status
+        updatePageNumber={updatePageNumber}
+        updateStatus={updateStatus}
+      />
+      <Species
+        updatePageNumber={updatePageNumber}
+        updateSpecies={updateSpecies}
+      />
     </div>
   </div>
 );
