@@ -1,5 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 
+import "../../App.css"
+
 const Navbar = () => {
 return (
   <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
@@ -25,8 +27,8 @@ return (
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="fas fa-bars open text-dark"></span>
-      <span class="fas fa-times close text-dark"></span>
+      <span className="fas fa-bars open text-dark"></span>
+      <span className="fas fa-times close text-dark"></span>
     </button>
     <div
       className="collapse navbar-collapse justify-content-end"

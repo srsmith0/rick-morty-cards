@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Episodes from "./Pages/Episodes";
 import Location from "./Pages/Location";
 
+
 const Home = () => {
   let [fetchedData, updateFetchedData] = useState([]);
   let [pageNumber, updatePageNumber] = useState(1);
@@ -65,6 +66,11 @@ const App = () => {
       <div className="App">
         <Navbar />
       </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/location" element={<Location />} />
+      </Routes>
     </Router>
   );
 }
