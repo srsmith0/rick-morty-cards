@@ -7,7 +7,7 @@ return (
   <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div className="container">
       <Link to="/" className="navbar-brand fs-3 ubuntu">
-        Rick & Morty <span className="text-primary">WiKi</span>
+        Rick & Morty <span className="text-primary">Characters</span>
       </Link>
       <style jsx="true">{`
         button[aria-expanded="false"] > .close {
@@ -42,7 +42,7 @@ return (
           Episode
         </NavLink>
         <NavLink
-          activeClassName="active" className="nav-link"
+          activeclassname="active" className="nav-link"
           to="/location" >Location</NavLink>
       </div>
     </div>
